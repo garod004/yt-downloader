@@ -4,17 +4,15 @@ services:
   app_proxy:
     environment:
       APP_HOST: yt-downloader_web_1
-      APP_PORT: 8090
-      PROXY_AUTH_ADD: "false"
+      APP_PORT: "8090"
 
   web:
     image: ghcr.io/garod004/yt-downloader:latest
     container_name: yt-downloader_web_1
-    restart: on-failure
-    stop_grace_period: 1m
+    restart: unless-stopped
     volumes:
-      - "${APP_DATA_DIR}/data:/app/data"
-      - "${APP_DATA_DIR}/downloads:/app/downloads"
+      - ${APP_DATA_DIR}/data:/app/data
+      - ${APP_DATA_DIR}/downloads:/app/downloads
     environment:
       DOWNLOAD_DIR: /app/downloads
       DB_PATH: /app/data/downloads.db

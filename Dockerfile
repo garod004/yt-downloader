@@ -19,4 +19,4 @@ RUN mkdir -p /app/downloads /app/data
 
 EXPOSE 8090
 
-CMD ["sh", "-c", "yt-dlp -U --no-check-certificate 2>/dev/null || true && uvicorn app.main:app --host 0.0.0.0 --port 8090 --workers 1"]
+CMD ["sh", "-c", "pip install -q --upgrade yt-dlp 2>/dev/null || true && uvicorn app.main:app --host 0.0.0.0 --port 8090 --workers 1"]

@@ -51,7 +51,7 @@ umbrel-apps/
 │   │   └── templates/index.html
 │   ├── Dockerfile
 │   └── requirements.txt
-├── garod004-apps-yt-downloader/      # Manifests Umbrel — Video Downloader
+├── garod004-apps-video-downloader/      # Manifests Umbrel — Video Downloader
 │   ├── docker-compose.yml
 │   ├── umbrel-app.yml
 │   └── icon.svg

@@ -1,8 +1,8 @@
 manifestVersion: 1
-id: garod004-apps-yt-downloader
+id: garod004-apps-video-downloader
 name: Video Downloader
 tagline: Baixe vídeos e músicas de qualquer plataforma
-icon: https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-yt-downloader/icon.svg
+icon: https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-video-downloader/icon.svg
 category: media
 version: '1.1.0'
 port: 8090
@@ -17,9 +17,9 @@ dependencies: []
 repo: https://github.com/garod004/umbrel-apps
 support: https://github.com/garod004/umbrel-apps/issues
 gallery:
-  - https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-yt-downloader/icon.svg
-  - https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-yt-downloader/icon.svg
-  - https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-yt-downloader/icon.svg
+  - https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-video-downloader/icon.svg
+  - https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-video-downloader/icon.svg
+  - https://raw.githubusercontent.com/garod004/umbrel-apps/main/garod004-apps-video-downloader/icon.svg
 path: ''
 defaultUsername: ''
 defaultPassword: ''

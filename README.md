@@ -1,90 +1,74 @@
-# Video Downloader
+# umbrel-apps
 
-Interface web para baixar vídeos e músicas de qualquer plataforma, feita para rodar no servidor Umbrel.
-
-Suporta YouTube, Twitter/X, Instagram, TikTok e centenas de outros sites via [yt-dlp](https://github.com/yt-dlp/yt-dlp).
-
-## Funcionalidades
-
-- Suporte a YouTube, Twitter/X, Instagram, TikTok e muito mais
-- Download de vídeos em 1080p, 720p e 480p (MP4)
-- Download de áudio em MP3 (192kbps)
-- Suporte a playlists completas
-- Progresso em tempo real com barra de andamento
-- Histórico de downloads com opção de re-baixar arquivos
-- Interface simples, funciona em celular e computador
-
-## Requisitos
-
-- Docker e Docker Compose instalados no servidor
-- Conexão com internet para baixar os vídeos
-
-## Como usar
-
-### 1. Clonar o repositório
-
-```bash
-git clone https://github.com/garod004/video-downloader.git
-cd video-downloader
-```
-
-### 2. Subir o container
-
-```bash
-docker compose up -d --build
-```
-
-### 3. Acessar no navegador
-
-```
-http://<IP-DO-UMBREL>:8090
-```
-
-Exemplo: `http://192.168.1.100:8090`
+Monorepo com apps self-hosted para o servidor Umbrel. Todos os apps são construídos com FastAPI + SQLite + Docker e publicados automaticamente no GitHub Container Registry via GitHub Actions.
 
 ---
 
-## Estrutura do projeto
+## Apps disponíveis
+
+### 🎬 Video Downloader
+Interface web para baixar vídeos e músicas de qualquer plataforma.
+
+- Suporta YouTube, Twitter/X, Instagram, TikTok e centenas de outros sites via [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+- Download de vídeos em 1080p, 720p e 480p (MP4)
+- Download de áudio em MP3 (192kbps)
+- Suporte a playlists completas
+- Progresso em tempo real e histórico de downloads
+
+**Imagem Docker:** `ghcr.io/garod004/yt-downloader:latest`
+**Porta:** 8090
+
+---
+
+### 🔄 File Converter
+Conversor de arquivos local para toda a família usar sem depender de serviços externos.
+
+- **Vídeo:** MP4 ↔ MKV, MP4 → AVI, qualquer vídeo → MP3
+- **Áudio:** MP3 ↔ WAV, FLAC → MP3, qualquer áudio → FLAC
+- **Imagem:** PNG ↔ JPG, WEBP ↔ PNG/JPG, imagem → PDF
+- **Documento:** PDF → DOCX, DOCX/PPTX/XLSX → PDF, PDF → PNG por página (ZIP)
+- Progresso em tempo real e histórico de conversões
+
+**Imagem Docker:** `ghcr.io/garod004/file-converter:latest`
+**Porta:** 9191
+
+---
+
+## Estrutura do repositório
 
 ```
-.
-├── app/
-│   ├── main.py          # API FastAPI + rotas
-│   ├── downloader.py    # Wrapper do yt-dlp
-│   ├── database.py      # Histórico (SQLite)
-│   └── templates/
-│       └── index.html   # Interface web
-├── downloads/           # Vídeos baixados (gerado automaticamente)
-├── data/                # Banco SQLite (gerado automaticamente)
+umbrel-apps/
+├── app/                              # Código-fonte — Video Downloader
+│   ├── main.py
+│   ├── downloader.py
+│   ├── database.py
+│   └── templates/index.html
+├── file-converter/                   # Código-fonte — File Converter
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── converter.py
+│   │   ├── database.py
+│   │   └── templates/index.html
+│   ├── Dockerfile
+│   └── requirements.txt
+├── garod004-apps-yt-downloader/      # Manifests Umbrel — Video Downloader
+│   ├── docker-compose.yml
+│   ├── umbrel-app.yml
+│   └── icon.svg
+├── garod004-apps-file-converter/     # Manifests Umbrel — File Converter
+│   ├── docker-compose.yml
+│   ├── umbrel-app.yml
+│   └── icon.svg
+├── umbrel-app-store.yml              # Manifest da loja de apps
 ├── Dockerfile
 ├── docker-compose.yml
-└── requirements.txt
-```
-
-## Atualizar o app
-
-```bash
-git pull
-docker compose up -d --build
-```
-
-## Comandos úteis
-
-```bash
-# Ver logs em tempo real
-docker compose logs -f
-
-# Parar o serviço
-docker compose down
-
-# Ver arquivos baixados
-ls downloads/
+└── .github/workflows/docker-publish.yml
 ```
 
 ## Stack técnica
 
-- **Backend**: Python 3.12 + FastAPI
-- **Downloader**: yt-dlp (conversão via ffmpeg)
-- **Banco de dados**: SQLite
-- **Frontend**: HTML + CSS + Vanilla JS (sem frameworks)
-- **Deploy**: Docker
+- **Backend:** Python 3.12 + FastAPI
+- **Banco de dados:** SQLite
+- **Frontend:** HTML + CSS + Vanilla JS (sem frameworks)
+- **Deploy:** Docker + GitHub Actions → ghcr.io
+- **Servidor:** [Umbrel](https://umbrel.com)

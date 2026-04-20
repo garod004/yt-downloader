@@ -1,0 +1,24 @@
+# Credenciais e configuração local
+.env
+*.env
+
+# Dependências
+vendor/
+
+# Backups do banco
+backups/
+
+# Uploads de clientes
+uploads_cnis/
+
+# Logs
+logs/
+*.log
+
+# Arquivos temporários
+*.bak
+debug_simple.txt
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db

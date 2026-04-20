@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Clientes</title>
+    <link rel="stylesheet" href="loginadm.css">
+    
+   
+</head>
+<body>
+        <div class="fundo"></div>
+    <div class="login-container">
+        <form action="login.php" method="POST" class="login-form">
+            <h2>Usuário</h2>
+            <div class="input-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <div class="form-actions full-width">
+            <button type="submit">Entrar</button>
+            </div>
+            
+            <p>Ainda não possui cadastro? <a href="cadastro.html">Cadastre-se aqui</a></p>
+        </form>
+    </div>
+</body>
+<script>
+    fetch('./check_session.php', { cache: 'no-store' })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Falha ao verificar sessao');
+            }
+
+            return response.json();
+        })
+        .then(function (data) {
+            if (data && data.logged_in) {
+                window.location.href = './dashboard.php';
+            }
+        })
+        .catch(function () {
+            return null;
+        });
+</script>
+</html>

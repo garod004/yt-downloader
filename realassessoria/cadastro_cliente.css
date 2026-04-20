@@ -1,0 +1,81 @@
+body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: rgb(224, 229, 233);
+        }
+
+        .titulo {
+          color: #0056b3;
+          text-align: center;
+        }
+
+        .form-container {
+            /* 
+               Define o layout principal como Grid
+               grid-template-columns: Cria três colunas de largura igual (1fr)
+            */
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 20px; /* Espaço entre as colunas e linhas */
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column; /* Organiza label e input verticalmente */
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%; /* Garante que os campos ocupem 100% da largura da coluna */
+            box-sizing: border-box; /* Garante que o padding não estoure a largura */
+        }
+
+        textarea {
+            resize: vertical; /* Permite redimensionar apenas verticalmente */
+            min-height: 100px;
+        }
+
+        /* Classe específica para o campo Observações ocupar mais espaço, se necessário */
+        .observacoes-full {
+            /* Ocupa da linha de início 1 até a linha final 4 (as 3 colunas) */
+            grid-column: 1 / span 3; 
+        }
+
+        /* ... (Mantenha todo o CSS anterior para .form-container, .form-group, etc.) ... */
+
+.botoes-container {
+    /* Faz o contêiner ocupar as 3 colunas completas */
+    grid-column: 1 / span 3; 
+    
+    /* Usa Flexbox para colocar os itens internos lado a lado */
+    display: flex;
+    gap: 15px; /* Espaçamento entre os dois botões */
+    margin-top: 20px;
+}
+
+/* Estilo para o botão Enviar (ajustado para funcionar dentro do container) */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+}
+
+/* Estilo para o botão Localizar (Opcional, para diferenciar a cor) */
+.btn-localizar {
+    background-color: #28a745; /* Uma cor verde, por exemplo */
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}

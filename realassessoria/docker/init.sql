@@ -1,0 +1,378 @@
+-- Backup gerado automaticamente
+-- Banco: realassessoria
+-- Data: 2026-04-16 21:13:22
+
+SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
+SET time_zone = '+00:00';
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Tabela: a_rogo
+CREATE TABLE IF NOT EXISTS `a_rogo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cliente_id` int NOT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identidade` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cpf` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_a_rogo_cliente_id` (`cliente_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `advogados` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `documento` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `oab` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endereco` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cidade` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uf` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fone` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_advogados_ativo` (`ativo`),
+  KEY `idx_advogados_nome` (`nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Tabela: clientes
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `meusis_id` int unsigned DEFAULT NULL,
+  `data_contrato` date DEFAULT NULL,
+  `beneficio` varchar(150) DEFAULT NULL,
+  `data_enviado` date NOT NULL,
+  `situacao` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `indicador` varchar(100) DEFAULT NULL,
+  `responsavel` varchar(100) DEFAULT NULL,
+  `advogado` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `numero_processo` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `usuario_id` int unsigned DEFAULT NULL,
+  `nome` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `nacionalidade` varchar(50) DEFAULT NULL,
+  `profissao` varchar(75) DEFAULT NULL,
+  `estado_civil` varchar(30) DEFAULT NULL,
+  `rg` varchar(20) DEFAULT NULL,
+  `data_nascimento` date DEFAULT NULL,
+  `idade` int DEFAULT NULL,
+  `cpf` varchar(14) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `endereco` varchar(255) DEFAULT NULL,
+  `cep` varchar(10) DEFAULT NULL,
+  `cidade` varchar(200) DEFAULT NULL,
+  `uf` varchar(2) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `telefone2` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `telefone3` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `senha_email` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `senha_meuinss` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `data_avaliacao_social` date NOT NULL,
+  `hora_avaliacao_social` time NOT NULL,
+  `endereco_avaliacao_social` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `realizado_a_s` tinyint(1) NOT NULL DEFAULT '0',
+  `data_pericia` date NOT NULL,
+  `hora_pericia` time NOT NULL,
+  `endereco_pericia` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `realizado_pericia` tinyint(1) NOT NULL DEFAULT '0',
+  `contrato_assinado` tinyint(1) NOT NULL DEFAULT '0',
+  `observacao` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `usuario_cadastro_id` int DEFAULT NULL,
+  `created_by` int DEFAULT NULL COMMENT 'ID do usuário que criou o registro',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Data/hora de criação',
+  `updated_by` int DEFAULT NULL COMMENT 'ID do usuário que fez a última alteração',
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Data/hora da última alteração',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cpf` (`cpf`),
+  UNIQUE KEY `uniq_clientes_meusis_id` (`meusis_id`),
+  KEY `sobrenome` (`usuario_id`) USING BTREE,
+  KEY `idx_usuario_cadastro` (`usuario_cadastro_id`),
+  FULLTEXT KEY `observacao` (`observacao`),
+  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb3;
+
+-- Tabela: configuracoes_sistema
+CREATE TABLE IF NOT EXISTS `configuracoes_sistema` (
+  `chave` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `valor` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `atualizado_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`chave`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Tabela: controle_acesso
+CREATE TABLE IF NOT EXISTS `controle_acesso` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(100) NOT NULL,
+  `acao` varchar(50) NOT NULL,
+  `descricao` text,
+  `id_alterado` int DEFAULT NULL,
+  `nome_alterado` varchar(255) DEFAULT NULL,
+  `data_hora` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=227 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Tabela: filhos_menores
+CREATE TABLE IF NOT EXISTS `filhos_menores` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `meusis_id` int unsigned DEFAULT NULL,
+  `cliente_id` int unsigned NOT NULL,
+  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data_nascimento` date NOT NULL,
+  `cpf` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `senha_gov` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_cliente_id` (`cliente_id`),
+  KEY `idx_filhos_menores_meusis_id` (`meusis_id`),
+  CONSTRAINT `filhos_menores_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Tabela: financeiro
+CREATE TABLE IF NOT EXISTS `financeiro` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `cliente_id` int unsigned NOT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  `data_contrato` date DEFAULT NULL,
+  `data_aprovado` date DEFAULT NULL,
+  `data_vencimento` date DEFAULT NULL,
+  `qtd_parcelas` decimal(10,2) DEFAULT '0.00',
+  `valor_parcela` decimal(10,2) DEFAULT '0.00',
+  `parcelas_pagas` decimal(10,2) DEFAULT '0.00',
+  `parcelas_faltantes` decimal(10,2) DEFAULT '0.00',
+  `retroativo` decimal(10,2) DEFAULT '0.00',
+  `percentual_retroativo` decimal(10,2) DEFAULT '0.00',
+  `saldo_retroativo` decimal(10,2) DEFAULT '0.00',
+  `honorarios_bruto` decimal(10,2) DEFAULT '0.00',
+  `honorarios_parceiro` decimal(10,2) DEFAULT '0.00',
+  `honorarios_advogado` decimal(10,2) DEFAULT '0.00',
+  `honorarios_liquido` decimal(10,2) DEFAULT '0.00',
+  `saldo_negativo` decimal(10,2) DEFAULT '0.00',
+  `pago` decimal(10,2) DEFAULT '0.00',
+  `parcela1` text,
+  `data_parcela1` date DEFAULT NULL,
+  `paga1` tinyint(1) DEFAULT '0',
+  `parcela2` text,
+  `data_parcela2` date DEFAULT NULL,
+  `paga2` tinyint(1) DEFAULT '0',
+  `parcela3` text,
+  `data_parcela3` date DEFAULT NULL,
+  `paga3` tinyint(1) DEFAULT '0',
+  `parcela4` text,
+  `data_parcela4` date DEFAULT NULL,
+  `paga4` tinyint(1) DEFAULT '0',
+  `parcela5` text,
+  `data_parcela5` date DEFAULT NULL,
+  `paga5` tinyint(1) DEFAULT '0',
+  `parcela6` text,
+  `data_parcela6` date DEFAULT NULL,
+  `paga6` tinyint(1) DEFAULT '0',
+  `parcela7` text,
+  `data_parcela7` date DEFAULT NULL,
+  `paga7` tinyint(1) DEFAULT '0',
+  `parcela8` text,
+  `data_parcela8` date DEFAULT NULL,
+  `paga8` tinyint(1) DEFAULT '0',
+  `parcela9` text,
+  `data_parcela9` date DEFAULT NULL,
+  `paga9` tinyint(1) DEFAULT '0',
+  `parcela10` text,
+  `data_parcela10` date DEFAULT NULL,
+  `paga10` tinyint(1) DEFAULT '0',
+  `parcela11` text,
+  `data_parcela11` date DEFAULT NULL,
+  `paga11` tinyint(1) DEFAULT '0',
+  `parcela12` text,
+  `data_parcela12` date DEFAULT NULL,
+  `paga12` tinyint(1) DEFAULT '0',
+  `parcela13` text,
+  `data_parcela13` date DEFAULT NULL,
+  `paga13` tinyint(1) DEFAULT '0',
+  `parcela14` text,
+  `data_parcela14` date DEFAULT NULL,
+  `paga14` tinyint(1) DEFAULT '0',
+  `parcela15` text,
+  `data_parcela15` date DEFAULT NULL,
+  `paga15` tinyint(1) DEFAULT '0',
+  `parcela16` text,
+  `data_parcela16` date DEFAULT NULL,
+  `paga16` tinyint(1) DEFAULT '0',
+  `parcela17` text,
+  `data_parcela17` date DEFAULT NULL,
+  `paga17` tinyint(1) DEFAULT '0',
+  `parcela18` text,
+  `data_parcela18` date DEFAULT NULL,
+  `paga18` tinyint(1) DEFAULT '0',
+  `parcela19` text,
+  `data_parcela19` date DEFAULT NULL,
+  `paga19` tinyint(1) DEFAULT '0',
+  `parcela20` text,
+  `data_parcela20` date DEFAULT NULL,
+  `paga20` tinyint(1) DEFAULT '0',
+  `parcela21` text,
+  `data_parcela21` date DEFAULT NULL,
+  `paga21` tinyint(1) DEFAULT '0',
+  `parcela22` text,
+  `data_parcela22` date DEFAULT NULL,
+  `paga22` tinyint(1) DEFAULT '0',
+  `parcela23` text,
+  `data_parcela23` date DEFAULT NULL,
+  `paga23` tinyint(1) DEFAULT '0',
+  `parcela24` text,
+  `data_parcela24` date DEFAULT NULL,
+  `paga24` tinyint(1) DEFAULT '0',
+  `parcela1ª` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_parcela1ª` date DEFAULT NULL,
+  `parcela2ª` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data_parcela2ª` date DEFAULT NULL,
+  `parcela3ª` text,
+  `data_parcela3ª` date DEFAULT NULL,
+  `parcela4ª` text,
+  `data_parcela4ª` date DEFAULT NULL,
+  `parcela5ª` text,
+  `data_parcela5ª` date DEFAULT NULL,
+  `parcela6ª` text,
+  `data_parcela6ª` date DEFAULT NULL,
+  `parcela7ª` text,
+  `data_parcela7ª` date DEFAULT NULL,
+  `parcela8ª` text,
+  `data_parcela8ª` date DEFAULT NULL,
+  `parcela9ª` text,
+  `data_parcela9ª` date DEFAULT NULL,
+  `parcela10ª` text,
+  `data_parcela10ª` date DEFAULT NULL,
+  `parcela11ª` text,
+  `data_parcela11ª` date DEFAULT NULL,
+  `parcela12ª` text,
+  `data_parcela12ª` date DEFAULT NULL,
+  `parcela13ª` text,
+  `data_parcela13ª` date DEFAULT NULL,
+  `parcela14ª` text,
+  `data_parcela14ª` date DEFAULT NULL,
+  `parcela15ª` text,
+  `data_parcela15ª` date DEFAULT NULL,
+  `parcela16ª` text,
+  `data_parcela16ª` date DEFAULT NULL,
+  `parcela17ª` text,
+  `data_parcela17ª` date DEFAULT NULL,
+  `parcela18ª` text,
+  `data_parcela18ª` date DEFAULT NULL,
+  `parcela19ª` text,
+  `data_parcela19ª` date DEFAULT NULL,
+  `parcela20ª` text,
+  `data_parcela20ª` date DEFAULT NULL,
+  `parcela21ª` text,
+  `data_parcela21ª` date DEFAULT NULL,
+  `parcela22ª` text,
+  `data_parcela22ª` date DEFAULT NULL,
+  `parcela23ª` text,
+  `data_parcela23ª` date DEFAULT NULL,
+  `parcela24ª` text,
+  `data_parcela24ª` date DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `cliente_id` (`cliente_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Tabela: incapazes
+CREATE TABLE IF NOT EXISTS `incapazes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cliente_id` int NOT NULL,
+  `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data_nascimento` date DEFAULT NULL,
+  `cpf` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `senha_gov` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_incapazes_cliente_id` (`cliente_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `processos` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `cliente_id` int NOT NULL,
+  `usuario_cadastro_id` int NOT NULL,
+  `numero_processo` varchar(80) NOT NULL,
+  `orgao` varchar(120) DEFAULT NULL,
+  `assunto` varchar(180) DEFAULT NULL,
+  `fase` varchar(80) DEFAULT NULL,
+  `status` varchar(60) DEFAULT 'ativo',
+  `data_distribuicao` date DEFAULT NULL,
+  `data_ultimo_andamento` date DEFAULT NULL,
+  `observacoes` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `beneficio` varchar(180) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Tabela: usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `meusis_id` int unsigned DEFAULT NULL,
+  `nome` varchar(75) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  `tipo_usuario` enum('admin','parceiro','usuario') DEFAULT 'usuario',
+  `DATA` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `uniq_usuarios_meusis_id` (`meusis_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE IF NOT EXISTS `tarefas_prazos` (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT DEFAULT NULL,
+    processo_id INT UNSIGNED DEFAULT NULL,
+    usuario_responsavel_id INT NOT NULL,
+    usuario_cadastro_id INT NOT NULL,
+    titulo VARCHAR(160) NOT NULL,
+    descricao TEXT,
+    tipo VARCHAR(60) DEFAULT 'tarefa',
+    prioridade VARCHAR(20) DEFAULT 'media',
+    status VARCHAR(20) DEFAULT 'aberta',
+    data_vencimento DATE NOT NULL,
+    hora_vencimento TIME DEFAULT NULL,
+    concluida_em DATETIME DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_tarefas_vencimento (data_vencimento),
+    INDEX idx_tarefas_status (status),
+    INDEX idx_tarefas_responsavel (usuario_responsavel_id),
+    INDEX idx_tarefas_cliente (cliente_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `modelos_documentos` (
+  `id`          INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome`        VARCHAR(150) NOT NULL,
+  `categoria`   VARCHAR(80)  DEFAULT 'Geral',
+  `descricao`   VARCHAR(255) DEFAULT NULL,
+  `conteudo`    LONGTEXT NOT NULL,
+  `ativo`       TINYINT(1) NOT NULL DEFAULT 1,
+  `criado_por`  VARCHAR(100) DEFAULT NULL,
+  `created_at`  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at`  DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_ativo` (`ativo`),
+  KEY `idx_categoria` (`categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Configurações padrão da empresa
+INSERT IGNORE INTO `configuracoes_sistema` (`chave`, `valor`) VALUES
+('empresa_nome',     'Real Assessoria'),
+('empresa_cnpj',     ''),
+('empresa_endereco', ''),
+('empresa_cidade',   ''),
+('empresa_uf',       ''),
+('empresa_telefone', '');
+
+-- Usuário administrador padrão (senha: admin123 — altere no primeiro acesso)
+INSERT IGNORE INTO `usuarios` (`nome`, `email`, `senha`, `is_admin`, `tipo_usuario`)
+VALUES ('Administrador', 'admin@realassessoria.local',
+        '$2b$12$1fLQ9Ir4hWKmiVi9JGFyXecABqDOdlql2U.ZN3pwIEOg33XbeFatu', 1, 'admin');
+
+SET FOREIGN_KEY_CHECKS = 1;

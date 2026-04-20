@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Contrato de Honorários - Filho Menor 30%</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+			font-size: 11pt;
+			line-height: 1.48;
+			color: #333333;
+		}
+		.header {
+			margin-bottom: 24px;
+			padding-bottom: 14px;
+			border-bottom: 3px solid #c8956e;
+		}
+		.header h1 {
+			font-size: 28pt;
+			color: #4a3524;
+			margin: 0 0 5px 0;
+			letter-spacing: 1px;
+		}
+		.header p {
+			font-size: 11pt;
+			color: #666666;
+			margin: 0;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+		.section-title {
+			background: #c8956e;
+			color: #ffffff;
+			padding: 8px 15px;
+			font-size: 10pt;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin: 18px 0 10px 0;
+		}
+		.content-box {
+			background: #f8f6f3;
+			padding: 14px 16px;
+			margin: 12px 0;
+			border-left: 4px solid #c8956e;
+			text-align: justify;
+		}
+		.clausula {
+			margin: 10px 0;
+			text-align: justify;
+		}
+		.assinaturas {
+			margin-top: 42px;
+		}
+		.local-data {
+			text-align: center;
+			margin-bottom: 36px;
+			font-size: 10pt;
+		}
+		.linha {
+			border-top: 2px solid #333333;
+			width: 350px;
+			margin: 44px auto 8px auto;
+		}
+		.assinatura {
+			text-align: center;
+			font-size: 10pt;
+			margin-top: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>CONTRATO</h1>
+		<p>Prestação de Serviço</p>
+	</div>
+
+	<div class="section-title">Contratante</div>
+	<div class="content-box">
+		<strong>{NOME_CLIENTE}</strong>, {NACIONALIDADE_CLIENTE}, {PROFISSAO_CLIENTE}, {ESTADO_CIVIL_CLIENTE}, portador(a) do RG nº {RG_CLIENTE} e inscrito(a) no CPF sob o nº {CPF_CLIENTE}, residente e domiciliado(a) em {ENDERECO_CLIENTE}, {CIDADE_CLIENTE} - {UF_CLIENTE}, telefone {TELEFONE_CLIENTE}, e-mail {EMAIL_CLIENTE}, neste ato na qualidade de representante legal do(a) filho(a) menor <strong>{FILHO_NOME}</strong>, inscrito(a) no CPF sob o nº {FILHO_CPF}, nascido(a) em {FILHO_DATA_NASC}.
+	</div>
+
+	<div class="section-title">Contratado</div>
+	<div class="content-box">
+		REAL ASSESSORIA PREVIDENCIÁRIA, CNPJ nº 13.244.474/0001-20, com endereço na Rua M, nº 65, Nova Cidade, CEP 69.097-030, Manaus - AM, neste ato representada por Dioleno Nobrega Silva, telefone (92) 99129-0577, e-mail dioleno.nobrega@gmail.com.
+	</div>
+
+	<div class="content-box">
+		<div class="clausula">As partes acima qualificadas celebram o presente <strong>CONTRATO DE HONORÁRIOS POR SERVIÇOS PRESTADOS</strong>, que será regido pelas cláusulas e condições abaixo.</div>
+		<div class="clausula"><strong>CLÁUSULA 1ª - DO OBJETO.</strong> O presente instrumento tem por objeto a prestação de serviços de assessoria para concessão e/ou restabelecimento de benefício previdenciário perante o INSS, inclusive na via administrativa ou judicial, abrangendo os atos e recursos necessários à defesa dos interesses do(a) CONTRATANTE e do(a) menor representado(a).</div>
+		<div class="clausula"><strong>CLÁUSULA 2ª - DOS HONORÁRIOS.</strong> Pelos serviços prestados, o(a) CONTRATANTE pagará ao CONTRATADO o equivalente a 30% (trinta por cento) sobre os valores retroativos recebidos, acrescido de 15 (quinze) parcelas de R$ 500,00 (quinhentos reais), a serem iniciadas no ato da implantação do benefício.</div>
+		<div class="clausula"><strong>CLÁUSULA 3ª - DO INADIMPLEMENTO.</strong> Em caso de descumprimento do acordo de pagamento, incidirá juros de 3% (três por cento) sobre cada parcela em atraso, sem prejuízo das demais medidas cabíveis.</div>
+		<div class="clausula"><strong>CLÁUSULA 4ª - DA RESCISÃO OU DESISTÊNCIA.</strong> A revogação imotivada do patrocínio ou a desistência injustificada por parte do(a) CONTRATANTE não o(a) desobriga do pagamento integral dos honorários contratados.</div>
+		<div class="clausula"><strong>PARÁGRAFO ÚNICO.</strong> Na hipótese de desistência, abandono, omissão relevante ou não comparecimento do(a) CONTRATANTE a atos indispensáveis ao andamento do procedimento, que acarretem extinção, improcedência do pedido ou prejuízo à demanda, será devida multa compensatória de R$ 2.000,00 (dois mil reais).</div>
+		<div class="clausula"><strong>CLÁUSULA 5ª - DA SUCESSÃO DOS HONORÁRIOS.</strong> Em caso de morte ou incapacidade civil do CONTRATADO, os honorários serão devidos a seus sucessores ou representante legal, na proporção do trabalho efetivamente realizado.</div>
+		<div class="clausula"><strong>CLÁUSULA 6ª - DO FORO.</strong> Fica eleito o foro da Comarca de Manaus - AM para dirimir quaisquer controvérsias oriundas deste contrato.</div>
+		<div class="clausula">Por estarem justos e contratados, firmam o presente instrumento em duas vias de igual teor e forma, juntamente com duas testemunhas.</div>
+	</div>
+
+	<div class="assinaturas">
+		<div class="local-data">{CIDADE_CLIENTE} - {UF_CLIENTE}, {DATA_ATUAL}</div>
+
+		<div class="linha"></div>
+		<div class="assinatura"><strong>{NOME_CLIENTE}</strong><br>CONTRATANTE</div>
+
+		<div class="linha"></div>
+		<div class="assinatura"><strong>REAL ASSESSORIA PREVIDENCIÁRIA</strong><br>CONTRATADO</div>
+	</div>
+</body>
+</html>

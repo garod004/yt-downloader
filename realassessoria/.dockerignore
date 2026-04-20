@@ -1,0 +1,9 @@
+.git
+.env
+backups/
+uploads_cnis/
+logs/
+vendor/
+*.log
+tests/
+phpunit.xml

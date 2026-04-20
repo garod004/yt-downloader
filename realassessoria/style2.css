@@ -1,0 +1,79 @@
+.meu-formulario-grid {
+  display: grid; /* Define o contêiner como um grid */
+  /* Cria 2 colunas com largura igual (1fr) */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* Espaçamento entre as células do grid */
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.meu-formulario-grid h2 {
+  grid-column: 1 / -1; /* Faz o título ocupar todas as colunas */
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; /* Label acima do input dentro de cada grupo */
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+  width: 100%; /* Ocupa a largura da sua célula no grid */
+}
+
+/* Classe para fazer um campo ocupar a largura total do formulário */
+.form-group.full-width {
+  grid-column: 1 / -1; /* Ocupa da primeira à última coluna definida no grid */
+}
+
+.form-actions {
+  grid-column: 1 / -1; /* Faz os botões ocuparem a largura total */
+  text-align: right;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .meu-formulario-grid {
+    grid-template-columns: 1fr; /* Em telas pequenas, todos os campos ficam em uma única coluna */
+  }
+
+  .meu-formulario-grid h2,
+  .form-group.full-width,
+  .form-actions {
+    grid-column: auto; /* Remove o span de colunas, eles naturalmente ocuparão 1fr */
+  }
+}

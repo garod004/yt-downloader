@@ -4,7 +4,7 @@ name: Real Assessoria
 tagline: Sistema de gestão jurídica para assessorias
 icon: https://raw.githubusercontent.com/garod004/yt-downloader/main/garod004-apps-realassessoria/icon.svg
 category: productivity
-version: '1.2.0'
+version: '1.2.1'
 port: 8180
 description: >-
   Sistema completo de gestão jurídica para assessorias previdenciárias.
@@ -23,6 +23,6 @@ path: ''
 defaultUsername: 'admin@realassessoria.local'
 defaultPassword: 'admin123'
 releaseNotes: >-
-  20 modelos de documentos com design visual completo (4 sistemas visuais: Navy, Plain, Dourado, Acadêmico), 2 novos modelos Edson Santiago (Filho Menor e A Rogo).
+  22 modelos cobrindo todos os 24 documentos originais: adicionados Contrato 30% Filho Menor (RA) e Procuração Judicial A Rogo (Edson Santiago).
 submitter: garod004
 submission: https://github.com/garod004/realassessoria_1

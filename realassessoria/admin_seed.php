@@ -1051,6 +1051,103 @@ CPF: {{cliente_cpf}}
 HTML,
 ];
 
+// =============================================================================
+// 21. CONTRATO PRESTAÇÃO DE SERVIÇO 30% — FILHO MENOR  [Sistema A — Navy]
+// =============================================================================
+$modelos[] = [
+    'nome'      => 'Contrato Prestação de Serviço 30% — Filho Menor (Real Assessoria)',
+    'categoria' => 'Contrato',
+    'descricao' => 'Contrato 30% sobre o benefício por responsável de filho menor — Real Assessoria',
+    'conteudo'  => <<<'HTML'
+<div class="doc-bar">CONTRATO</div>
+<div class="doc-bar-sub">Prestação de Serviço · 30% · Responsável por Filho Menor · Real Assessoria</div>
+
+<div class="doc-sec">CONTRATANTE</div>
+<div class="doc-body">
+<p>{{cliente_nome}}, {{cliente_nacionalidade}}, {{cliente_profissao}}, {{cliente_estado_civil}}, portador(a) do RG nº {{cliente_rg}}, inscrito(a) no CPF sob o nº {{cliente_cpf}}, residente e domiciliado(a) em {{cliente_endereco}}, {{cliente_cidade}}/{{cliente_uf}}, telefone {{cliente_telefone}}, e-mail {{cliente_email}}, neste ato na qualidade de representante legal do(a) filho(a) menor <strong>{{filho_nome}}</strong>, inscrito(a) no CPF sob o nº {{filho_cpf}}, nascido(a) em {{filho_data_nascimento}}.</p>
+</div>
+
+<div class="doc-sec">CONTRATADO</div>
+<div class="doc-body">
+<p>{{empresa_nome}}, CNPJ nº {{empresa_cnpj}}, com endereço na {{empresa_endereco}}, {{empresa_cidade}}/AM, neste ato representada por {{empresa_proprietarios}}, telefone {{empresa_fone}}, e-mail {{empresa_email}}.</p>
+</div>
+
+<div class="doc-sec">CLÁUSULAS E CONDIÇÕES</div>
+<div class="doc-body">
+<p>As partes acima qualificadas celebram o presente CONTRATO DE HONORÁRIOS POR SERVIÇOS PRESTADOS, que será regido pelas cláusulas e condições abaixo.</p>
+
+<p><strong>Cláusula 1ª — Do objeto.</strong> O presente instrumento tem por objeto a prestação de serviços de assessoria para concessão e/ou restabelecimento de benefício previdenciário perante o INSS, inclusive na via administrativa ou judicial, abrangendo os atos e recursos necessários à defesa dos interesses do(a) CONTRATANTE e do(a) menor representado(a).</p>
+
+<p><strong>Cláusula 2ª — Dos honorários.</strong> Pelos serviços prestados, o(a) CONTRATANTE pagará ao CONTRATADO o equivalente a <strong>30% (trinta por cento) sobre o benefício</strong>, a serem iniciadas no ato da implantação do benefício.</p>
+
+<p><strong>Cláusula 3ª — Do inadimplemento.</strong> Em caso de descumprimento do acordo de pagamento, incidirá juros de 3% (três por cento) sobre cada parcela em atraso, sem prejuízo das demais medidas cabíveis.</p>
+
+<p><strong>Cláusula 4ª — Da rescisão ou desistência.</strong> A revogação imotivada do patrocínio ou a desistência injustificada por parte do(a) CONTRATANTE não o(a) desobriga do pagamento integral dos honorários contratados.</p>
+
+<p><strong>Parágrafo único.</strong> Na hipótese de desistência, abandono, omissão relevante ou não comparecimento do(a) CONTRATANTE a atos indispensáveis ao andamento do procedimento, que acarretem extinção, improcedência do pedido ou prejuízo à demanda, será devida multa compensatória de R$ 2.000,00 (dois mil reais).</p>
+
+<p><strong>Cláusula 5ª — Da sucessão dos honorários.</strong> Em caso de morte ou incapacidade civil do CONTRATADO, os honorários serão pagos por seus sucessores ou representante legal, na proporção do trabalho efetivamente realizado.</p>
+
+<p><strong>Cláusula 6ª — Do foro.</strong> Fica eleito o foro da Comarca de {{cliente_cidade}}/{{cliente_uf}} para dirimir quaisquer controvérsias oriundas deste contrato.</p>
+
+<p>Por estarem justos e contratados, firmam o presente instrumento em duas vias de igual teor e forma, juntamente com duas testemunhas.</p>
+</div>
+
+<div class="doc-sig">
+<p>{{cliente_cidade}}/{{cliente_uf}}, {{data_hoje_extenso}}.</p>
+<table class="sig-table">
+<tr>
+  <td><span class="sig-line"></span>{{cliente_nome}}<br/>CONTRATANTE</td>
+  <td><span class="sig-line"></span>{{empresa_nome}}<br/>CONTRATADO</td>
+</tr>
+</table>
+</div>
+HTML,
+];
+
+// =============================================================================
+// 22. PROCURAÇÃO JUDICIAL A ROGO  [Sistema A — Navy]
+// =============================================================================
+$modelos[] = [
+    'nome'      => 'Procuração Judicial A Rogo (Edson Santiago)',
+    'categoria' => 'Procuração',
+    'descricao' => 'Procuração Ad Judicia Et Extra assinada a rogo — Edson Santiago Advogados',
+    'conteudo'  => <<<'HTML'
+<div class="doc-bar">PROCURAÇÃO</div>
+<div class="doc-bar-sub">Ad Judicia Et Extra · A Rogo · Edson Santiago Advogados</div>
+
+<div class="doc-sec">OUTORGANTE</div>
+<div class="doc-body">
+<p>{{cliente_nome}}, {{cliente_nacionalidade}}, {{cliente_profissao}}, {{cliente_estado_civil}}, portador(a) do documento de identidade n.º {{cliente_rg}}, inscrito(a) no CPF/MF sob o n.º {{cliente_cpf}}, residente e domiciliado(a) em {{cliente_endereco}}, {{cliente_cidade}}/{{cliente_uf}}, telefone: {{cliente_telefone}}, e-mail: {{cliente_email}}.</p>
+<p style="margin-top:6pt;">Assina a rogo do(a) outorgante: <strong>{{a_rogo_nome}}</strong>, portador(a) da cédula de identidade n.º {{a_rogo_identidade}}, inscrito(a) no CPF sob o n.º {{a_rogo_cpf}}, por ser o(a) outorgante analfabeto(a) ou por outra razão que o(a) impossibilite de assinar.</p>
+</div>
+
+<div class="doc-sec">OUTORGADOS</div>
+<div class="doc-body">
+<p>{{advogado_1_nome}}, Brasileiro, Casado, Advogado, inscrito na {{advogado_1_oab}}, {{advogado_2_nome}}, Brasileiro, Casado, Advogado, inscrito na {{advogado_2_oab}}, ambos com endereço profissional na {{advogado_1_endereco}}, {{advogado_1_cidade}}/{{advogado_1_uf}}, tel.: {{advogado_1_fone}}, e e-mail: {{advogado_1_email}}, onde deverão receber intimações.</p>
+</div>
+
+<div class="doc-sec">PODERES ESPECÍFICOS</div>
+<div class="doc-body">
+<p>Por meio do presente instrumento particular de mandato, o(a) outorgante nomeia e constitui seus bastante procuradores os advogados acima qualificados, conferindo-lhes poderes específicos para representá-lo(a) em juízo ou fora dele, ativa e passivamente, com a cláusula <em>Ad Judicia</em> e <em>Et Extra</em>, em qualquer juízo, instância ou tribunal, inclusive Juizados Especiais, para praticar todos os atos necessários à defesa de seus interesses, podendo, para tanto, propor, contestar, acompanhar, transigir, acordar, discordar, firmar termos de compromisso, substabelecer, e praticar todos os demais atos necessários ao fiel e cabal cumprimento deste mandato.</p>
+</div>
+
+<div class="doc-sig">
+<p>{{cliente_cidade}}/{{cliente_uf}}, {{data_hoje_extenso}}.</p>
+<table class="sig-table">
+<tr>
+  <td><span class="sig-line"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}<br/>(Outorgante — assina a rogo)</td>
+  <td><span class="sig-line"></span>{{a_rogo_nome}}<br/>CPF: {{a_rogo_cpf}}<br/>(Assina a rogo)</td>
+</tr>
+<tr>
+  <td style="padding-top:22pt;"><span class="sig-line"></span>Testemunha 1</td>
+  <td style="padding-top:22pt;"><span class="sig-line"></span>Testemunha 2</td>
+</tr>
+</table>
+</div>
+HTML,
+];
+
 // ── Inserir modelos ──────────────────────────────────────────────────────────
 $ins2 = $conn->prepare(
     "INSERT INTO modelos_documentos (nome, categoria, descricao, conteudo, criado_por) VALUES (?,?,?,?,'seed')"

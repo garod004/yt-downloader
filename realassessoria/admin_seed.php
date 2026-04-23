@@ -74,7 +74,7 @@ $modelos[] = [
 <div class="doc-sig">
 <p>{{cliente_cidade}}/{{cliente_uf}}, {{data_hoje_extenso}}.</p>
 <table class="sig-table" style="margin-top:24pt;">
-<tr><td style="width:60%;"><span class="sig-line"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td><td></td></tr>
+<tr><td><span class="sig-line" style="width:55%;"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td></tr>
 </table>
 </div>
 HTML,
@@ -152,7 +152,7 @@ $modelos[] = [
 <div class="doc-sig">
 <p>{{cliente_cidade}}/{{cliente_uf}}, {{data_hoje_extenso}}.</p>
 <table class="sig-table" style="margin-top:24pt;">
-<tr><td style="width:60%;"><span class="sig-line"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td><td></td></tr>
+<tr><td><span class="sig-line" style="width:55%;"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td></tr>
 </table>
 </div>
 HTML,
@@ -187,7 +187,7 @@ $modelos[] = [
 <div class="doc-sig">
 <p>{{cliente_cidade}}/{{cliente_uf}}, {{data_hoje_extenso}}.</p>
 <table class="sig-table" style="margin-top:24pt;">
-<tr><td style="width:60%;"><span class="sig-line"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td><td></td></tr>
+<tr><td><span class="sig-line" style="width:55%;"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td></tr>
 </table>
 </div>
 HTML,
@@ -222,7 +222,7 @@ $modelos[] = [
 <div class="doc-sig">
 <p>{{advogado_1_cidade}}/{{advogado_1_uf}}, {{data_hoje_extenso}}.</p>
 <table class="sig-table" style="margin-top:24pt;">
-<tr><td style="width:60%;"><span class="sig-line"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td><td></td></tr>
+<tr><td><span class="sig-line" style="width:55%;"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td></tr>
 </table>
 </div>
 HTML,
@@ -257,7 +257,7 @@ $modelos[] = [
 <div class="doc-sig">
 <p>{{advogado_1_cidade}}/{{advogado_1_uf}}, {{data_hoje_extenso}}.</p>
 <table class="sig-table" style="margin-top:24pt;">
-<tr><td style="width:60%;"><span class="sig-line"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td><td></td></tr>
+<tr><td><span class="sig-line" style="width:55%;"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td></tr>
 </table>
 </div>
 HTML,
@@ -292,7 +292,7 @@ $modelos[] = [
 <div class="doc-sig">
 <p>{{advogado_1_cidade}}/{{advogado_1_uf}}, {{data_hoje_extenso}}.</p>
 <table class="sig-table" style="margin-top:24pt;">
-<tr><td style="width:60%;"><span class="sig-line"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td><td></td></tr>
+<tr><td><span class="sig-line" style="width:55%;"></span>{{cliente_nome}}<br/>CPF/MF: {{cliente_cpf}}</td></tr>
 </table>
 </div>
 HTML,

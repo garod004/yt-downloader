@@ -148,8 +148,8 @@ try {
         strong, b { font-weight:bold; }
 
         /* ── Sistema A: Navy (Procurações + Contratos RA) ── */
-        .doc-bar     { background:#2c3e50; color:#fff; padding:14px 22px; font-size:15pt; font-weight:bold; letter-spacing:1px; }
-        .doc-bar-sub { background:#2c3e50; color:#a8bfcc; padding:3px 22px 13px; font-size:10pt; font-weight:normal; }
+        .doc-bar     { background:#2c3e50; color:#fff; padding:14px 22px; font-size:15pt; font-weight:bold; letter-spacing:1px; text-align:center; }
+        .doc-bar-sub { background:#2c3e50; color:#a8bfcc; padding:3px 22px 13px; font-size:10pt; font-weight:normal; text-align:center; }
         .doc-sec     { background:#34495e; color:#fff; padding:7px 22px; font-size:9.5pt; font-weight:bold; letter-spacing:.4px; }
         .doc-body    { padding:10px 22px 6px; }
         .doc-body p  { margin-bottom:5pt; text-align:justify; }

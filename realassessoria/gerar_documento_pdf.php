@@ -152,7 +152,7 @@ try {
         .doc-bar-sub { background:#2c3e50; color:#a8bfcc; padding:3px 22px 13px; font-size:10pt; font-weight:normal; }
         .doc-sec     { background:#34495e; color:#fff; padding:7px 22px; font-size:9.5pt; font-weight:bold; letter-spacing:.4px; }
         .doc-body    { padding:10px 22px 6px; }
-        .doc-body p  { margin-bottom:5pt; }
+        .doc-body p  { margin-bottom:5pt; text-align:justify; }
         .doc-sig     { padding:16px 22px 22px; }
         .lv          { width:100%; }
         .lv td       { padding:2pt 8pt 2pt 0; }

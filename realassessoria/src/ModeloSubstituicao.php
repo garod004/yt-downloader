@@ -118,7 +118,31 @@ class ModeloSubstituicao
 
     public static function substituir(string $conteudo, array $mapa): string
     {
-        return str_replace(array_keys($mapa), array_values($mapa), $conteudo);
+        $html = str_replace(array_keys($mapa), array_values($mapa), $conteudo);
+        return self::limparCamposVazios($html);
+    }
+
+    private static function limparCamposVazios(string $html): string
+    {
+        // Colapsar vírgulas consecutivas: "SILVA, , SOLTEIRO" → "SILVA, SOLTEIRO"
+        do {
+            $prev = $html;
+            $html = preg_replace('/,\s*,/', ', ', $html);
+        } while ($html !== $prev);
+
+        // Remover rótulo vazio antes de pontuação: ", e-mail: ." ou ", fone: ," → ""
+        $html = preg_replace('/,\s*\b(?:e-mail|email|fone|telefone|tel\.?):\s*(?=[,.])/ui', '', $html);
+
+        // Remover preposição seguida de vírgula (campo de endereço vazio): "em , Rua" → "em Rua"
+        $html = preg_replace('/\b(em|na|no|à|ao|pela|pelo)\s+,\s*/u', '$1 ', $html);
+
+        // Remover vírgula antes de barra de UF: ", /AM" → "/AM"
+        $html = preg_replace('/,\s*\/([A-Z]{2})\b/', '/$1', $html);
+
+        // Remover vírgula antes de ponto final: "telefone: (xx),." → "telefone: (xx)."
+        $html = preg_replace('/,(\s*\.)/', '$1', $html);
+
+        return $html;
     }
 
     public static function extrairMarcadores(string $conteudo): array
